@@ -22,7 +22,7 @@ templates__run_dbt_model_smi__flow.storage = GCS(constants.GCS_FLOWS_BUCKET.valu
 templates__run_dbt_model_smi__flow.run_config = KubernetesRun(
     image=constants.DOCKER_IMAGE.value,
     labels=[
-        constants.RJ_SMI_AGENT_LABEL.value,
+        constants.RJ_SMDUE_AGENT_LABEL.value,
     ],
 )
 
