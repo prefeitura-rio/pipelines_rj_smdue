@@ -68,69 +68,120 @@ sislic_queries = {
             FROM SMU_PRD.dbo.tbPTI_Assunto
             """,
     },
-    # "cronograma_financeiro": {
+    "assunto_nivel_1": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                descNivel1,
+                codAssuntoN1
+            FROM SMU_PRD.dbo.tbPTI_AssuntosNivel1
+            """,
+    },
+    "assunto_nivel_2": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                descNivel2,
+                codAssuntoN2
+            FROM SMU_PRD.dbo.tbPTI_AssuntosNivel2
+            """,
+    },
+    "assunto_nivel_3": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                descNivel3,
+                codAssuntoN3
+            FROM SMU_PRD.dbo.tbPTI_AssuntosNivel3
+            """,
+    },
+    "logradouro": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                codLogra,
+                codLograSMF,
+                codTipoLogra,
+                codNobreza,
+                descPrepo,
+                nomLogra
+            FROM SMU_PRD.dbo.tbLogra_Logradouros
+            """,
+    },
+    "bairro_logradouro": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                codLogra,
+                codBairro
+            FROM SMU_PRD.dbo.tbLogra_LograBairros
+            """,
+    },
+    "bairro": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                codBairro,
+                nomBairro,
+                codOrgaoSMU
+            FROM SMU_PRD.dbo.tbLogra_Bairros
+            """,
+    },
+    "tramite_processo": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                codLogra,
+                codLograSMF,
+                codTipoLogra,
+                codNobreza,
+                descPrepo,
+                nomLogra
+            FROM SMU_PRD.dbo.tbLogra_Logradouros
+            """,
+    },
+    # "lo": {
     #     "materialize_after_dump": True,
     #     "materialization_mode": "prod",
     #     "dump_mode": "overwrite",
     #     "execute_query": """
-    #         Select
-    #             DISTINCT
-    #                 CD_OBRA,
-    #                 ETAPA,
-    #                 DT_INICIO_ETAPA,
-    #                 DT_FIM_ETAPA,
-    #                 PC_PERCENTUAL,
-    #                 VL_ESTIMADO
-    #         from dbo.fuSEGOVI_Cronograma_Financeiro()
+    #         SELECT
+    #             codLogra,
+    #             codLograSMF,
+    #             codTipoLogra,
+    #             codNobreza,
+    #             descPrepo,
+    #             nomLogra
+    #         FROM SMU_PRD.dbo.tbLogra_Logradouros
     #         """,
     # },
-    # "localizacao": {
+    # "lo": {
     #     "materialize_after_dump": True,
     #     "materialization_mode": "prod",
     #     "dump_mode": "overwrite",
     #     "execute_query": """
-    #         Select
-    #             CD_OBRA,
-    #             ENDERECO,
-    #             NM_BAIRRO,
-    #             NM_RA,
-    #             NM_AP
-    #         from dbo.fuSEGOVI_Localizacoes_obra()
-    #         """,
-    # },
-    # "cronograma_alteracao": {
-    #     "materialize_after_dump": True,
-    #     "materialization_mode": "prod",
-    #     "dump_mode": "overwrite",
-    #     "execute_query": """
-    #         Select
-    #             DISTINCT
-    #                 CD_OBRA,
-    #                 NR_PROCESSO,
-    #                 TP_ALTERACAO,
-    #                 DT_PUBL_DO,
-    #                 CD_ETAPA,
-    #                 NR_PRAZO,
-    #                 DT_VALIDADE,
-    #                 DS_OBSERVACAO
-    #         from dbo.fuSEGOVI_Alteração_de_Cronograma()
-    #         """,
-    # },
-    # "programa_fonte": {
-    #     "materialize_after_dump": True,
-    #     "materialization_mode": "prod",
-    #     "dump_mode": "overwrite",
-    #     "execute_query": """
-    #         Select
-    #             DISTINCT
-    #                 CD_OBRA,
-    #                 CD_PRG_TRAB,
-    #                 PROGRAMA_TRABALHO,
-    #                 CD_FONTE_RECURSO,
-    #                 FONTE_RECURSO,
-    #                 CD_NATUREZA_DSP,
-    #                 NATUREZA_DESPESA
-    #         from dbo.fuSEGOVI_Programa_Fonte()
+    #         SELECT
+    #             codLogra,
+    #             codLograSMF,
+    #             codTipoLogra,
+    #             codNobreza,
+    #             descPrepo,
+    #             nomLogra
+    #         FROM SMU_PRD.dbo.tbLogra_Logradouros
     #         """,
     # },
 }
