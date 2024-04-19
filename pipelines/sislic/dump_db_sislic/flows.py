@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Database dumping flows for segovi project (SISLIC)
+Database dumping flows for SMDUE project (SISLIC)
 """
 
 from copy import deepcopy
