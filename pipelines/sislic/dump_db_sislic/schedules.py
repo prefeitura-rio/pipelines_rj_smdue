@@ -145,13 +145,18 @@ sislic_queries = {
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
-                codLogra,
-                codLograSMF,
-                codTipoLogra,
-                codNobreza,
-                descPrepo,
-                nomLogra
-            FROM SMU_PRD.dbo.tbLogra_Logradouros
+                codTramite,
+                matricCadastrador,
+                codDocumento,
+                dtCadastro,
+                dtSaida,
+                vfDestinoOrgao,
+                codDestino,
+                matricOrigem,
+                matricDestino,
+                codOrigem,
+                status
+            FROM SMU_PRD.dbo.tbPTI_Tramites
             """,
     },
     "requerente_processo_documento": {
@@ -190,7 +195,6 @@ sislic_queries = {
             SELECT
                 codDocumento,
                 codPessoa,
-                vfTitular,
                 matricCadastrador,
                 dtCadastro
             FROM SMU_PRD.dbo.tbPTI_ProcessosRequerentes
@@ -356,8 +360,7 @@ sislic_queries = {
             SELECT
                 codTramite,
                 codParecer,
-                descDespacho,
-                vfCumprido
+                descDespacho
             FROM SMU_PRD.dbo.tbPTI_Despachos
             """,
     },
@@ -442,12 +445,7 @@ sislic_queries = {
         "execute_query": """
             SELECT
                 ID_AREA_PROTECAO_CULTURAL,
-                DS_AREA_PROTECAO_CULTURAL,
-                OPCAO_GRAU_PROTECAO,
-                ANTERIOR_1938_ESTADO_DEFAULT,
-                SITIO_RIO_PATRIMONIO_MUNDIAL_ESTADO_DEFUALT,
-                ANTERIOR_1938_AUTOMATICO,
-                SITIO_RIO_AUTOMATICO
+                DS_AREA_PROTECAO_CULTURAL
             FROM SMU_PRD.dbo.tbPTI_IRPH_Area_Protecao_Cultural tpiapc
             """,
     },
