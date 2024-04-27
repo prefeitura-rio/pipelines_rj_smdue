@@ -609,6 +609,166 @@ sislic_queries = {
             FROM SMU_PRD.dbo.tbLIC_PavimentosLicencas
             """,
     },
+    "subdivisao_edificacao_obra": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Id_SubDivisao,
+                num_lic,
+                id_edif,
+                descSubDivisao
+            FROM SMU_PRD.dbo.tbLIC_SubDivisoesEdificacao
+            """,
+    },
+    "unidade_edificacao_obra": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Id_Unid,
+                num_lic,
+                id_edif,
+                id_SubDivisao,
+                cod_unidade,
+                ComplTipo_Unid,
+                quant_unid,
+                Num_recebida,
+                area_unid
+            FROM SMU_PRD.dbo.tbLIC_UnidadesLicencas
+            """,
+    },
+    "darm_licenca_alvara": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Num_Darm,
+                cod_Classe,
+                cod_Tipo_Lic,
+                cod_Lic,
+                cod_Compl_Lic,
+                compl_Livre,
+                Valor,
+                Formula
+            FROM SMU_PRD.dbo.tbLIC_LicencasDARMs
+            """,
+    },
+    "darm_alvara": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                num_Darm,
+                DARM,
+                Num_Lic,
+                CNPJ_CPF,
+                Cod_Receita,
+                Dt_Emissao,
+                Dt_Venc,
+                Dt_Pagamento,
+                Competencia,
+                Mora,
+                Multa,
+                Valor_Darm_Inicial,
+                ValorDarm,
+                Cancelado,
+                Dt_Calculo,
+                InscIPTU,
+                Avulso
+            FROM SMU_PRD.dbo.tbLIC_DARMS
+            """,
+    },
+    "licenca_alvara": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Id_Lic,
+                num_lic,
+                id_edif,
+                cod_classe,
+                cod_tipo_lic,
+                cod_lic,
+                cod_compl_lic,
+                Compl_Livre,
+                Dec9218,
+                OutroDec,
+                ObrasConcluidas
+            FROM SMU_PRD.dbo.tbLIC_LicencasEdificacoes
+            """,
+    },
+    "loteamento_alvara": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                num_lic,
+                LotesVinculados,
+                ComprLograProjetados,
+                TotalLotesPrimitivosRemembramento,
+                TotalLotesRemembrados,
+                TotalLotesPrimitivosDesmembramento,
+                TotalLotesDesmembrados,
+                TotalLotesPrimitivosReDesmembramento,
+                TotalLotesReDesmembrados,
+                TotalAreasPrivativasPrimitivas,
+                TotalAreasPrivativasResultantes
+            FROM SMU_PRD.dbo.tbLIC_ComplementacaoLicencaLoteamento
+            """,
+    },
+    "licenca_substituida": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                num_Lic_Substituida,
+                num_lic_Nova,
+                DtSubstituicao,
+                Motivo,
+                Retificacao,
+                RetificacaoTotal,
+                RecalculoDarm_Liberado
+            FROM SMU_PRD.dbo.tbLIC_LicencasSubstituidas
+            """,
+    },
+    "licenca_loteamento": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Id_Lote,
+                num_lic,
+                Quantidade,
+                Categoria,
+                TpLote
+            FROM SMU_PRD.dbo.tbLIC_IdentificacaoLotesLicenca
+            """,
+    },
+    "restricao_alvara": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Id_Rest,
+                num_lic,
+                cod_Restricao,
+                Compl_Restricao,
+                Outra_restricao,
+                Data_Baixa,
+                BAIXA_EXOFFICIO
+            FROM SMU_PRD.dbo.tbLIC_RestricoesLicencas
+            """,
+    },
 }
 
 sislic_clocks = generate_dump_db_schedules(
