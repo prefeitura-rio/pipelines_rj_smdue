@@ -187,7 +187,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 codDocumento,
                 codPessoa,
                 vfTitular,
@@ -201,7 +201,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 codDocumento,
                 codEndereco,
                 vfPrincipal,
@@ -215,7 +215,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 codOrgaoSMU,
                 codOrgaoSici,
                 sigla,
@@ -231,8 +231,8 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
-                ID_CLASSIFICACAO_PROCESSO, 
+            SELECT
+                ID_CLASSIFICACAO_PROCESSO,
                 DS_CLASSIFICACAO_PROCESSO
             FROM SMU_PRD.dbo.tbPTI_ClassificacaoProcesso
             """,
@@ -242,7 +242,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 codDocumentoPrincipal,
                 codDocumentoApenso,
                 MatricCadastrador
@@ -254,10 +254,10 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 ID_TIPO_PROCESSO,
                 DS_TIPO_PROCESSO
-            FROM SMU_PRD.dbo.tbPTI_TiposProcessos 
+            FROM SMU_PRD.dbo.tbPTI_TiposProcessos
             """,
     },
     "orgao_origem_classificacao": {
@@ -265,10 +265,10 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 ID_ORIGEM_CLASSIFICACAO_PROCESSO,
                 DS_ORIGEM_CLASSIFICACAO_PROCESSO
-            FROM SMU_PRD.dbo.tbPTI_OrigemClassificacaoProcesso 
+            FROM SMU_PRD.dbo.tbPTI_OrigemClassificacaoProcesso
             """,
     },
     "area_protecao_processo": {
@@ -276,7 +276,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 ID_AREA_GRAU,
                 ID_AREA_PROTECAO_CULTURAL,
                 ID_GRAU_PROTECAO,
@@ -290,7 +290,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 ID_IRPH_DOCTO,
                 CODDOCUMENTO,
                 DESCRICAO
@@ -302,7 +302,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 ID_PREO,
                 CODDOCUMENTO,
                 NOME_PREO,
@@ -314,7 +314,7 @@ sislic_queries = {
                 TIPO_CONSELHO_PREO,
                 NUMERO_CONSELHO_PREO,
                 ID_PROFISSAO
-            FROM SMU_PRD.dbo.tbPTI_PREO 
+            FROM SMU_PRD.dbo.tbPTI_PREO
             """,
     },
     "prpa": {
@@ -322,7 +322,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 ID_PRPA,
                 CODDOCUMENTO,
                 NOME_PRPA,
@@ -342,7 +342,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 ID_PROFISSAO,
                 DS_PROFISSAO
             FROM SMU_PRD.dbo.tbPTI_Profissao
@@ -366,7 +366,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 codParecer,
                 descParecer,
                 vfGeraPublicacao,
@@ -380,7 +380,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 codLinha,
                 codTramite,
                 codPublicacao,
@@ -402,7 +402,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 codEndereco,
                 codLogra,
                 numPorta,
@@ -467,7 +467,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 licenca,
                 num_proc,
                 cod_dlf,
@@ -546,7 +546,7 @@ sislic_queries = {
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
+            SELECT
                 ID_Endereco,
                 Num_lic,
                 cLogra,
@@ -578,7 +578,7 @@ sislic_queries = {
                 embasamento,
                 RecebeNumeracao,
                 ContaEdificacao,
-                Qtd_Edif 
+                Qtd_Edif
             FROM SMU_PRD.dbo.tbLIC_EdificacoesLicencas
             """,
     },
@@ -605,7 +605,7 @@ sislic_queries = {
                 Pavimento,
                 Tot_pav,
                 tot_vagasCobertas,
-                Tot_VagasDescobertas 
+                Tot_VagasDescobertas
             FROM SMU_PRD.dbo.tbLIC_PavimentosLicencas
             """,
     },
