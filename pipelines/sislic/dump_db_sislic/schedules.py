@@ -547,13 +547,13 @@ sislic_queries = {
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT 
-                ID_Endereco ,
+                ID_Endereco,
                 Num_lic,
                 cLogra,
-                Tipo ,
-                Nobreza ,
-                Preposicao ,
-                NomeLogra ,
+                Tipo,
+                Nobreza,
+                Preposicao,
+                NomeLogra,
                 Num
             FROM SMU_PRD.dbo.tbLIC_EnderecosLicenca
             """,
@@ -565,19 +565,19 @@ sislic_queries = {
         "execute_query": """
             SELECT
                 id_edif,
-                Num_Edif ,
+                Num_Edif,
                 Num_lic,
-                Cod_Tp_edif ,
-                cod_Compl_Tp_Edif ,
-                cod_Compl_Tp_Edif2 ,
+                Cod_Tp_edif,
+                cod_Compl_Tp_Edif,
+                cod_Compl_Tp_Edif2,
                 Compl_Livre,
-                area_edif ,
-                area_acresc ,
-                area_reduzida ,
-                area_util ,
-                embasamento ,
-                RecebeNumeracao ,
-                ContaEdificacao ,
+                area_edif,
+                area_acresc,
+                area_reduzida,
+                area_util,
+                embasamento,
+                RecebeNumeracao,
+                ContaEdificacao,
                 Qtd_Edif 
             FROM SMU_PRD.dbo.tbLIC_EdificacoesLicencas
             """,
@@ -588,7 +588,7 @@ sislic_queries = {
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
-                id_edif ,
+                id_edif,
                 ID_Endereco
             FROM SMU_PRD.dbo.tbLIC_EnderecosEdificacao
             """,
@@ -602,8 +602,8 @@ sislic_queries = {
                 Id_Pav,
                 Num_lic,
                 Id_Edif,
-                Pavimento ,
-                Tot_pav ,
+                Pavimento,
+                Tot_pav,
                 tot_vagasCobertas,
                 Tot_VagasDescobertas 
             FROM SMU_PRD.dbo.tbLIC_PavimentosLicencas
