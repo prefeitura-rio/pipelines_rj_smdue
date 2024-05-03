@@ -767,6 +767,131 @@ sislic_queries = {
             FROM SMU_PRD.dbo.tbLIC_RestricoesLicencas
             """,
     },
+    "restricao_fase": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Cod_restricao,
+                Cod_fase,
+                desc_restricao,
+                Tipo_Compl,
+                Compl,
+                ATIVO
+            FROM SMU_PRD.dbo.tbLic_restricoes
+            """,
+    },
+    "fase_obra": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Cod_Fase,
+                Abrev_Fase,
+                OrdemImp
+            FROM SMU_PRD.dbo.tbLic_FasesObras
+            """,
+    },
+    "tipo_edificacao": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Cod_TpEdificacao,
+                Desc_TpEdificacao
+            FROM SMU_PRD.dbo.tbLic_TiposEdificacoes
+            """,
+    },
+    "compl_1_tipo_edificacao": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Cod_TpEdificacao,
+                Cod_Compl_TpEdificacao,
+                Compl_TpEdificacao
+            FROM SMU_PRD.dbo.tbLic_ComplTpEdificacoes1
+            """,
+    },
+    "compl_2_tipo_edificacao": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                cod_Edif,
+                cod_compl_TpEdificacao,
+                cod_compl_tpEdificacao2,
+                Compl2
+            FROM SMU_PRD.dbo.tbLic_ComplTpEdificacoes2
+            """,
+    },
+    "tipo_licenca_acao_requerente": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                COD_LIC,
+                DESCR_LIC,
+                TAB_AUX_CATEGORIA,
+                TAB_AUX_AREA,
+                GRATIS,
+                COMPL,
+                Compl_Obrigatorio
+            FROM SMU_PRD.dbo.tbLic_DescricoesLicencas
+            """,
+    },
+    "compl_tipo_licenca_acao_requerente": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                COD_LIC,
+                COD_COMPL_LIC,
+                COMPL,
+                GRATIS
+            FROM SMU_PRD.dbo.tbLic_ComplementosTpLicencas
+            """,
+    },
+    "tipo_licenca_acao_prefeitura_1": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                COD_TIPO_LIC,
+                DESCR_TIPO_LIC
+            FROM SMU_PRD.dbo.tbLic_TiposLicencas
+            """,
+    },
+    "tipo_licenca_acao_prefeitura_2": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                cod_classe,
+                descr_classe
+            FROM SMU_PRD.dbo.tbLIC_ClassesLicencas
+            """,
+    },
+    "tipo_unidade": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                Desc_Unidade,
+                Desc_unidade_Plural
+            FROM SMU_PRD.dbo.tbLIC_Unidades
+            """,
+    },
 }
 
 sislic_clocks = generate_dump_db_schedules(
