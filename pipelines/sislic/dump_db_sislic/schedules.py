@@ -3,11 +3,10 @@
 Schedules for the database dump pipeline
 """
 
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 
-from prefect.schedules import Schedule
 import pytz
-
+from prefect.schedules import Schedule
 from prefeitura_rio.pipelines_utils.io import untuple_clocks as untuple
 from prefeitura_rio.pipelines_utils.prefect import generate_dump_db_schedules
 
@@ -37,6 +36,7 @@ sislic_queries = {
                 NUMERO_REQUERIMENTO
             FROM SMU_PRD.dbo.tbPTI_Documentos
             """,
+        "biglake_table": True,
     },
     "tipo_documento": {
         "materialize_after_dump": True,
@@ -48,6 +48,7 @@ sislic_queries = {
                 descTipoDocumento
             FROM SMU_PRD.dbo.tbPTI_TiposDocumentos
             """,
+        "biglake_table": True,
     },
     "assunto_processo": {
         "materialize_after_dump": True,
@@ -67,6 +68,7 @@ sislic_queries = {
                 AssuntoProcessoRio
             FROM SMU_PRD.dbo.tbPTI_Assunto
             """,
+        "biglake_table": True,
     },
     "assunto_nivel_1": {
         "materialize_after_dump": True,
@@ -78,6 +80,7 @@ sislic_queries = {
                 codAssuntoN1
             FROM SMU_PRD.dbo.tbPTI_AssuntosNivel1
             """,
+        "biglake_table": True,
     },
     "assunto_nivel_2": {
         "materialize_after_dump": True,
@@ -89,6 +92,7 @@ sislic_queries = {
                 codAssuntoN2
             FROM SMU_PRD.dbo.tbPTI_AssuntosNivel2
             """,
+        "biglake_table": True,
     },
     "assunto_nivel_3": {
         "materialize_after_dump": True,
@@ -100,6 +104,7 @@ sislic_queries = {
                 codAssuntoN3
             FROM SMU_PRD.dbo.tbPTI_AssuntosNivel3
             """,
+        "biglake_table": True,
     },
     "logradouro": {
         "materialize_after_dump": True,
@@ -115,6 +120,7 @@ sislic_queries = {
                 nomLogra
             FROM SMU_PRD.dbo.tbLogra_Logradouros
             """,
+        "biglake_table": True,
     },
     "bairro_logradouro": {
         "materialize_after_dump": True,
@@ -126,6 +132,7 @@ sislic_queries = {
                 codBairro
             FROM SMU_PRD.dbo.tbLogra_LograBairros
             """,
+        "biglake_table": True,
     },
     "bairro": {
         "materialize_after_dump": True,
@@ -138,6 +145,7 @@ sislic_queries = {
                 codOrgaoSMU
             FROM SMU_PRD.dbo.tbLogra_Bairros
             """,
+        "biglake_table": True,
     },
     "tramite_processo": {
         "materialize_after_dump": True,
@@ -158,6 +166,7 @@ sislic_queries = {
                 status
             FROM SMU_PRD.dbo.tbPTI_Tramites
             """,
+        "biglake_table": True,
     },
     "requerente_processo_documento": {
         "materialize_after_dump": True,
@@ -186,6 +195,7 @@ sislic_queries = {
                 inscmunicipal
             FROM SMU_PRD.dbo.tbPTI_Pessoas
             """,
+        "biglake_table": True,
     },
     "requerente_processo": {
         "materialize_after_dump": True,
@@ -199,6 +209,7 @@ sislic_queries = {
                 dtCadastro
             FROM SMU_PRD.dbo.tbPTI_ProcessosRequerentes
             """,
+        "biglake_table": True,
     },
     "endereco_obra_processo": {
         "materialize_after_dump": True,
@@ -213,6 +224,7 @@ sislic_queries = {
                 dtCadastro
             FROM SMU_PRD.dbo.tbPTI_EnderecosProcessos
             """,
+        "biglake_table": True,
     },
     "orgao_tramitacao_processo": {
         "materialize_after_dump": True,
@@ -229,6 +241,7 @@ sislic_queries = {
                 permiteAgendamento
             FROM SMU_PRD.dbo.tbLogra_Orgaos
             """,
+        "biglake_table": True,
     },
     "classificacao_processo": {
         "materialize_after_dump": True,
@@ -240,6 +253,7 @@ sislic_queries = {
                 DS_CLASSIFICACAO_PROCESSO
             FROM SMU_PRD.dbo.tbPTI_ClassificacaoProcesso
             """,
+        "biglake_table": True,
     },
     "processo_apenso": {
         "materialize_after_dump": True,
@@ -252,6 +266,7 @@ sislic_queries = {
                 MatricCadastrador
             FROM SMU_PRD.dbo.tbPTI_Apensos
             """,
+        "biglake_table": True,
     },
     "tipo_processo": {
         "materialize_after_dump": True,
@@ -263,6 +278,7 @@ sislic_queries = {
                 DS_TIPO_PROCESSO
             FROM SMU_PRD.dbo.tbPTI_TiposProcessos
             """,
+        "biglake_table": True,
     },
     "orgao_origem_classificacao": {
         "materialize_after_dump": True,
@@ -274,6 +290,7 @@ sislic_queries = {
                 DS_ORIGEM_CLASSIFICACAO_PROCESSO
             FROM SMU_PRD.dbo.tbPTI_OrigemClassificacaoProcesso
             """,
+        "biglake_table": True,
     },
     "area_protecao_processo": {
         "materialize_after_dump": True,
@@ -288,6 +305,7 @@ sislic_queries = {
                 SITIO_RIO_PATRIMONIO_MUNDIAL
             FROM SMU_PRD.dbo.tbPTI_IRPH_Complemento_Area_Grau_Protecao
             """,
+        "biglake_table": True,
     },
     "processo_irph": {
         "materialize_after_dump": True,
@@ -300,6 +318,7 @@ sislic_queries = {
                 DESCRICAO
             FROM SMU_PRD.dbo.tbPTI_IRPH_Complemento_Processo
             """,
+        "biglake_table": True,
     },
     "preo": {
         "materialize_after_dump": True,
@@ -320,6 +339,7 @@ sislic_queries = {
                 ID_PROFISSAO
             FROM SMU_PRD.dbo.tbPTI_PREO
             """,
+        "biglake_table": True,
     },
     "prpa": {
         "materialize_after_dump": True,
@@ -340,6 +360,7 @@ sislic_queries = {
                 ID_PROFISSAO
             FROM SMU_PRD.dbo.tbPTI_PRPA
             """,
+        "biglake_table": True,
     },
     "profissao_preo_prpa": {
         "materialize_after_dump": True,
@@ -351,6 +372,7 @@ sislic_queries = {
                 DS_PROFISSAO
             FROM SMU_PRD.dbo.tbPTI_Profissao
             """,
+        "biglake_table": True,
     },
     "despacho": {
         "materialize_after_dump": True,
@@ -363,6 +385,7 @@ sislic_queries = {
                 descDespacho
             FROM SMU_PRD.dbo.tbPTI_Despachos
             """,
+        "biglake_table": True,
     },
     "tipo_parecer_tramite": {
         "materialize_after_dump": True,
@@ -377,6 +400,7 @@ sislic_queries = {
                 PUBLICACAO_FRENTE_DO
             FROM SMU_PRD.dbo.tbPTI_TiposPareceres
             """,
+        "biglake_table": True,
     },
     "linha_publicacao_tramite": {
         "materialize_after_dump": True,
@@ -399,6 +423,7 @@ sislic_queries = {
                 dtliberacao
             FROM SMU_PRD.dbo.tbPTI_Linha
             """,
+        "biglake_table": True,
     },
     "endereco_produto_pedido": {
         "materialize_after_dump": True,
@@ -424,6 +449,7 @@ sislic_queries = {
                 ID_TpInscricaoIMOVEL
             FROM SMU_PRD.dbo.tbPTI_Enderecos
             """,
+        "biglake_table": True,
     },
     "publicacao_domrj": {
         "materialize_after_dump": True,
@@ -437,6 +463,7 @@ sislic_queries = {
                 dtPrevista
             FROM SMU_PRD.dbo.tbPTI_Publicacao
             """,
+        "biglake_table": True,
     },
     "area_protecao_cultural": {
         "materialize_after_dump": True,
@@ -448,6 +475,7 @@ sislic_queries = {
                 DS_AREA_PROTECAO_CULTURAL
             FROM SMU_PRD.dbo.tbPTI_IRPH_Area_Protecao_Cultural tpiapc
             """,
+        "biglake_table": True,
     },
     "grau_protecao_area": {
         "materialize_after_dump": True,
@@ -459,6 +487,7 @@ sislic_queries = {
                 DS_GRAU_PROTECAO
             FROM SMU_PRD.dbo.tbPTI_IRPH_Grau_Protecao
             """,
+        "biglake_table": True,
     },
     "alvara_obra_privada": {
         "materialize_after_dump": True,
@@ -538,6 +567,7 @@ sislic_queries = {
                 LicOnLine_ID_Requerimento
             FROM SMU_PRD.dbo.tbLIC_Licencas
             """,
+        "biglake_table": True,
     },
     "endereco_obra_alvara": {
         "materialize_after_dump": True,
@@ -555,6 +585,7 @@ sislic_queries = {
                 Num
             FROM SMU_PRD.dbo.tbLIC_EnderecosLicenca
             """,
+        "biglake_table": True,
     },
     "edificacao_obra_licenca": {
         "materialize_after_dump": True,
@@ -579,6 +610,7 @@ sislic_queries = {
                 Qtd_Edif
             FROM SMU_PRD.dbo.tbLIC_EdificacoesLicencas
             """,
+        "biglake_table": True,
     },
     "endereco_edificacao": {
         "materialize_after_dump": True,
@@ -590,6 +622,7 @@ sislic_queries = {
                 ID_Endereco
             FROM SMU_PRD.dbo.tbLIC_EnderecosEdificacao
             """,
+        "biglake_table": True,
     },
     "pavimento_edificacao_obra": {
         "materialize_after_dump": True,
@@ -606,6 +639,7 @@ sislic_queries = {
                 Tot_VagasDescobertas
             FROM SMU_PRD.dbo.tbLIC_PavimentosLicencas
             """,
+        "biglake_table": True,
     },
     "subdivisao_edificacao_obra": {
         "materialize_after_dump": True,
@@ -619,6 +653,7 @@ sislic_queries = {
                 descSubDivisao
             FROM SMU_PRD.dbo.tbLIC_SubDivisoesEdificacao
             """,
+        "biglake_table": True,
     },
     "unidade_edificacao_obra": {
         "materialize_after_dump": True,
@@ -637,6 +672,7 @@ sislic_queries = {
                 area_unid
             FROM SMU_PRD.dbo.tbLIC_UnidadesLicencas
             """,
+        "biglake_table": True,
     },
     "darm_licenca_alvara": {
         "materialize_after_dump": True,
@@ -654,6 +690,7 @@ sislic_queries = {
                 Formula
             FROM SMU_PRD.dbo.tbLIC_LicencasDARMs
             """,
+        "biglake_table": True,
     },
     "darm_alvara": {
         "materialize_after_dump": True,
@@ -680,6 +717,7 @@ sislic_queries = {
                 Avulso
             FROM SMU_PRD.dbo.tbLIC_DARMS
             """,
+        "biglake_table": True,
     },
     "licenca_alvara": {
         "materialize_after_dump": True,
@@ -700,6 +738,7 @@ sislic_queries = {
                 ObrasConcluidas
             FROM SMU_PRD.dbo.tbLIC_LicencasEdificacoes
             """,
+        "biglake_table": True,
     },
     "loteamento_alvara": {
         "materialize_after_dump": True,
@@ -720,6 +759,7 @@ sislic_queries = {
                 TotalAreasPrivativasResultantes
             FROM SMU_PRD.dbo.tbLIC_ComplementacaoLicencaLoteamento
             """,
+        "biglake_table": True,
     },
     "licenca_substituida": {
         "materialize_after_dump": True,
@@ -736,6 +776,7 @@ sislic_queries = {
                 RecalculoDarm_Liberado
             FROM SMU_PRD.dbo.tbLIC_LicencasSubstituidas
             """,
+        "biglake_table": True,
     },
     "licenca_loteamento": {
         "materialize_after_dump": True,
@@ -750,6 +791,7 @@ sislic_queries = {
                 TpLote
             FROM SMU_PRD.dbo.tbLIC_IdentificacaoLotesLicenca
             """,
+        "biglake_table": True,
     },
     "restricao_alvara": {
         "materialize_after_dump": True,
@@ -766,6 +808,7 @@ sislic_queries = {
                 BAIXA_EXOFFICIO
             FROM SMU_PRD.dbo.tbLIC_RestricoesLicencas
             """,
+        "biglake_table": True,
     },
     "restricao_fase": {
         "materialize_after_dump": True,
@@ -781,6 +824,7 @@ sislic_queries = {
                 ATIVO
             FROM SMU_PRD.dbo.tbLic_restricoes
             """,
+        "biglake_table": True,
     },
     "fase_obra": {
         "materialize_after_dump": True,
@@ -793,6 +837,7 @@ sislic_queries = {
                 OrdemImp
             FROM SMU_PRD.dbo.tbLic_FasesObras
             """,
+        "biglake_table": True,
     },
     "tipo_edificacao": {
         "materialize_after_dump": True,
@@ -804,6 +849,7 @@ sislic_queries = {
                 Desc_TpEdificacao
             FROM SMU_PRD.dbo.tbLic_TiposEdificacoes
             """,
+        "biglake_table": True,
     },
     "compl_1_tipo_edificacao": {
         "materialize_after_dump": True,
@@ -816,6 +862,7 @@ sislic_queries = {
                 Compl_TpEdificacao
             FROM SMU_PRD.dbo.tbLic_ComplTpEdificacoes1
             """,
+        "biglake_table": True,
     },
     "compl_2_tipo_edificacao": {
         "materialize_after_dump": True,
@@ -829,6 +876,7 @@ sislic_queries = {
                 Compl2
             FROM SMU_PRD.dbo.tbLic_ComplTpEdificacoes2
             """,
+        "biglake_table": True,
     },
     "tipo_licenca_acao_requerente": {
         "materialize_after_dump": True,
@@ -845,6 +893,7 @@ sislic_queries = {
                 Compl_Obrigatorio
             FROM SMU_PRD.dbo.tbLic_DescricoesLicencas
             """,
+        "biglake_table": True,
     },
     "compl_tipo_licenca_acao_requerente": {
         "materialize_after_dump": True,
@@ -858,6 +907,7 @@ sislic_queries = {
                 GRATIS
             FROM SMU_PRD.dbo.tbLic_ComplementosTpLicencas
             """,
+        "biglake_table": True,
     },
     "tipo_licenca_acao_prefeitura_1": {
         "materialize_after_dump": True,
@@ -869,6 +919,7 @@ sislic_queries = {
                 DESCR_TIPO_LIC
             FROM SMU_PRD.dbo.tbLic_TiposLicencas
             """,
+        "biglake_table": True,
     },
     "tipo_licenca_acao_prefeitura_2": {
         "materialize_after_dump": True,
@@ -880,6 +931,7 @@ sislic_queries = {
                 descr_classe
             FROM SMU_PRD.dbo.tbLIC_ClassesLicencas
             """,
+        "biglake_table": True,
     },
     "tipo_unidade": {
         "materialize_after_dump": True,
@@ -891,6 +943,7 @@ sislic_queries = {
                 Desc_unidade_Plural
             FROM SMU_PRD.dbo.tbLIC_Unidades
             """,
+        "biglake_table": True,
     },
 }
 
