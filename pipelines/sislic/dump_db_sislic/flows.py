@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Database dumping flows for SMDUE project (SISLIC)
+Database dump flow for SMDUE project (SISLIC)
 """
 
 from copy import deepcopy
 
 from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
-
 from prefeitura_rio.pipelines_templates.dump_db.flows import flow as dump_sql_flow
 from prefeitura_rio.pipelines_utils.prefect import set_default_parameters
 from prefeitura_rio.pipelines_utils.state_handlers import (
@@ -16,9 +15,7 @@ from prefeitura_rio.pipelines_utils.state_handlers import (
 )
 
 from pipelines.constants import constants
-from pipelines.sislic.dump_db_sislic.schedules import (
-    update_schedule,
-)
+from pipelines.sislic.dump_db_sislic.schedules import update_schedule
 
 dump_sislic_flow = deepcopy(dump_sql_flow)
 dump_sislic_flow.name = "SMDUE: SISLIC - Ingerir tabelas de banco SQL"
