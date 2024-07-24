@@ -135,7 +135,8 @@ sislic_queries = {
             SELECT
                 codBairro,
                 nomBairro,
-                codOrgaoSMU
+                codOrgaoSMU,
+                codRa
             FROM SMU_PRD.dbo.tbLogra_Bairros
             """,
     },
