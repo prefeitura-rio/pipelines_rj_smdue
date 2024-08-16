@@ -1086,6 +1086,7 @@ sislic_clocks = generate_dump_db_schedules(
     dataset_id="adm_licenca_urbanismo",
     infisical_secret_path="/db_sislic",
     table_parameters=sislic_queries,
+    runs_interval_minutes=5,
 )
 
 update_schedule = Schedule(clocks=untuple(sislic_clocks))
