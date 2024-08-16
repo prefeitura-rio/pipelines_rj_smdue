@@ -934,6 +934,31 @@ sislic_queries = {
             """,
         "biglake_table": True,
     },
+    "tipo_licenca_acao_prefeitura_3": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                cod_lic,
+                descr_lic
+            FROM SMU_PRD.dbo.tbLic_DescricoesLicencas
+            """,
+        "biglake_table": True,
+    },
+    "tipo_licenca_acao_prefeitura_4": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                cod_lic,
+                cod_compl_lic,
+                compl
+            FROM SMU_PRD.dbo.tbLic_ComplementosTpLicencas
+            """,
+        "biglake_table": True,
+    },
     "tipo_unidade": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
