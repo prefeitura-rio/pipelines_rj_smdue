@@ -12,6 +12,6 @@ SELECT
     id_classificacao_processo AS id_classificacao_processo,
     id_origem_classificacao_processo AS id_origem_classificacao_processo,
     id_tipo_processo AS id_tipo_processo,
-    CAST(ano_requerimento AS INT64) AS ano_requerimento,
-    CAST(numero_requerimento AS INT64) AS numero_requerimento
+    CAST(CAST(ano_requerimento AS FLOAT64) AS INT64) AS ano_requerimento,
+    CAST(CAST(numero_requerimento AS FLOAT64) AS INT64) AS numero_requerimento
 FROM `rj-smdue.adm_licenca_urbanismo_staging.documento`

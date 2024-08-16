@@ -13,5 +13,5 @@ CAST(area_util AS FLOAT64)  AS Area_Util ,
 CAST(embasamento AS BOOL)  AS Embasamento ,
 CAST(RecebeNumeracao AS BOOL)  AS Recebe_Numeracao ,
 CAST(ContaEdificacao AS BOOL)  AS Conta_Edificacao ,
-CAST(Qtd_Edif AS INT64)  AS Total_Edificacoes 
+CAST(CAST(Qtd_Edif AS FLOAT64) AS INT64)  AS Total_Edificacoes 
 FROM `rj-smdue.adm_licenca_urbanismo_staging.edificacao_obra_licenca`

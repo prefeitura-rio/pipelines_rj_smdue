@@ -9,5 +9,5 @@ SELECT
     NUMERO_REGISTRO_PRPA AS Numero_Registro_PRPA,
     TIPO_CONSELHO_PRPA AS Tipo_Conselho_PRPA,
     NUMERO_CONSELHO_PRPA AS Numero_Conselho_PRPA,
-    CAST(ID_PROFISSAO AS INT64) AS Id_Profissao
+    CAST(CAST(ID_PROFISSAO AS FLOAT64) AS INT64) AS Id_Profissao
 FROM `rj-smdue.adm_licenca_urbanismo_staging.prpa`
