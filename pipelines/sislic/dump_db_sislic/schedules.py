@@ -910,7 +910,7 @@ sislic_queries = {
             """,
         "biglake_table": True,
     },
-    "tipo_licenca_acao_prefeitura_1": {
+    "tipo_licenca_acao_prefeitura_2": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
@@ -922,7 +922,7 @@ sislic_queries = {
             """,
         "biglake_table": True,
     },
-    "tipo_licenca_acao_prefeitura_2": {
+    "tipo_licenca_acao_prefeitura_1": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
@@ -931,18 +931,6 @@ sislic_queries = {
                 cod_classe,
                 descr_classe
             FROM SMU_PRD.dbo.tbLIC_ClassesLicencas
-            """,
-        "biglake_table": True,
-    },
-    "tipo_licenca_acao_prefeitura_3": {
-        "materialize_after_dump": True,
-        "materialization_mode": "prod",
-        "dump_mode": "overwrite",
-        "execute_query": """
-            SELECT
-                cod_lic,
-                descr_lic
-            FROM SMU_PRD.dbo.tbLic_DescricoesLicencas
             """,
         "biglake_table": True,
     },
@@ -965,6 +953,7 @@ sislic_queries = {
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
+                Cod_Unidade,
                 Desc_Unidade,
                 Desc_unidade_Plural
             FROM SMU_PRD.dbo.tbLIC_Unidades
@@ -1068,6 +1057,26 @@ sislic_queries = {
                 ,Cancelado
                 ,Obs
             FROM SMU_PRD.dbo.tbLIC_Aceitacoes
+            """,
+        "biglake_table": True,
+    },
+    "georeferencia_endereco_obra_processo": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+            id_processo,
+            id_processo_sislic,
+            nu_processo,
+            cd_logradouro,
+            nu_porta,
+            nu_pal,
+            id_bairro_sislic,
+            id_ra_sislic,
+            no_bairro,
+            shape
+            FROM SMU_PRD.dbo.tbGEOSISLIC_processo
             """,
         "biglake_table": True,
     },

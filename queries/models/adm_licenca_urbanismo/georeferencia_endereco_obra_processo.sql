@@ -9,4 +9,4 @@ CAST(id_bairro_sislic AS STRING) AS Id_Bairro_SISLIC,
 CAST(id_ra_sislic AS STRING) AS Id_RA_SISLIC,
 CAST(no_bairro AS STRING) AS Nome_Bairro,
 CAST(shape AS GEOGRAPHY) AS Coordenadas
-FROM `rj-smdue.adm_licenca_urbanismo_staging.georeferenciamento_endereco_obra`
+FROM `rj-smdue.adm_licenca_urbanismo_staging.georeferencia_endereco_obra_processo`

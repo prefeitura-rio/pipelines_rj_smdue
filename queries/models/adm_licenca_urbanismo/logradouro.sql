@@ -1,5 +1,5 @@
 SELECT
-codLogra AS  AS Id_Logradouro,
+codLogra AS Id_Logradouro,
 codLograSMF AS codigo_Lograuro_SMF,
 codTipoLogra AS Tipo_Logradouro,
 codNobreza AS Codigo_Nobreza,
