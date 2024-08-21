@@ -1,13 +1,13 @@
 SELECT
-codTramite AS Id_Tramite,
-matricCadastrador AS Matricula_Cadastrador,
-codDocumento AS Id_Documento,
-CAST(dtCadastro AS DATETIME) AS Data_Cadastro,
-CAST(dtSaida AS DATETIME) AS Data_Saida,
-CAST(vfDestinoOrgao AS BOOL) AS Orgao_Destino,
-codDestino AS Id_Orgao_Destino,
-matricOrigem AS Matricula_Origem,
-matricDestino AS Matricula_Destino,
-codOrigem AS Id_Origem,
-status AS Status
+codtramite AS id_tramite,
+matriccadastrador AS matricula_cadastrador,
+coddocumento AS id_documento,
+CAST(dtcadastro AS DATETIME) AS data_cadastro,
+CAST(dtsaida AS DATETIME) AS data_saida,
+CAST(vfdestinoorgao AS BOOL) AS orgao_destino,
+coddestino AS id_orgao_destino,
+matricorigem AS matricula_origem,
+matricdestino AS matricula_destino,
+codorigem AS id_origem,
+status AS status
 FROM `rj-smdue.adm_licenca_urbanismo_staging.tramite_processo`

@@ -7,6 +7,6 @@ SELECT
     codAssunto_ReqOnLine AS id_assunto_requerimento_online,
     CAST(Exige_Endereco AS BOOL) AS exige_endereco,
     CAST(Exige_ProcessoConstrucao AS BOOL) AS exige_processo_construcao,
-    CAST(Exige_CPF_CNPJ_Requerente AS BOOL) AS exige_CPF_CNPJ_requerente,
+    CAST(Exige_CPF_CNPJ_Requerente AS BOOL) AS exige_cpf_cnpj_requerente,
     AssuntoProcessoRio AS assunto_processo_rio
 FROM `rj-smdue.adm_licenca_urbanismo_staging.assunto_processo`

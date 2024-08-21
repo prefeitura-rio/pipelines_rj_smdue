@@ -1,13 +1,13 @@
 SELECT
-    ID_PRPA AS id_PRPA,
-    CODDOCUMENTO AS id_Processo,
-    NOME_PRPA AS nome_PRPA,
-    CPF_PRPA AS CPF_PRPA,
-    EMAIL_PRPA AS email_PRPA,
-    TELEFONE_PRPA AS telefone_PRPA,
-    TIPO_REGISTRO_PRPA AS Tipo_Registro_PRPA,
-    NUMERO_REGISTRO_PRPA AS Numero_Registro_PRPA,
-    TIPO_CONSELHO_PRPA AS Tipo_Conselho_PRPA,
-    NUMERO_CONSELHO_PRPA AS Numero_Conselho_PRPA,
-    CAST(CAST(ID_PROFISSAO AS FLOAT64) AS INT64) AS Id_Profissao
+    id_prpa AS id_prpa,
+    coddocumento AS id_processo,
+    nome_prpa AS nome_prpa,
+    cpf_prpa AS cpf_prpa,
+    email_prpa AS email_prpa,
+    telefone_prpa AS telefone_prpa,
+    tipo_registro_prpa AS tipo_registro_prpa,
+    numero_registro_prpa AS numero_registro_prpa,
+    tipo_conselho_prpa AS tipo_conselho_prpa,
+    numero_conselho_prpa AS numero_conselho_prpa,
+    CAST(CAST(id_profissao AS FLOAT64) AS INT64) AS id_profissao
 FROM `rj-smdue.adm_licenca_urbanismo_staging.prpa`

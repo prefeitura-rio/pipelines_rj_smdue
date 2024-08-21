@@ -1,13 +1,13 @@
 SELECT
-    ID_PREO AS id_PREO,
-    CODDOCUMENTO AS id_Documento,
-    NOME_PREO AS nome_PREO,
-    CPF_PREO AS CPF_PREO,
-    EMAIL_PREO AS email_PREO,
-    TELEFONE_PREO AS telefone_PREO,
-    TIPO_REGISTRO_PREO AS tipo_registro_PREO,
-    NUMERO_REGISTRO_PREO AS numero_registro_PREO,
-    TIPO_CONSELHO_PREO AS tipo_conselho_PREO,
-    NUMERO_CONSELHO_PREO AS numero_conselho_PREO,
-    ID_PROFISSAO AS id_profissao
+    id_preo AS id_preo,
+    coddocumento AS id_documento,
+    nome_preo AS nome_preo,
+    cpf_preo AS cpf_preo,
+    email_preo AS email_preo,
+    telefone_preo AS telefone_preo,
+    tipo_registro_preo AS tipo_registro_preo,
+    numero_registro_preo AS numero_registro_preo,
+    tipo_conselho_preo AS tipo_conselho_preo,
+    numero_conselho_preo AS numero_conselho_preo,
+    id_profissao AS id_profissao
 FROM `rj-smdue.adm_licenca_urbanismo_staging.preo`

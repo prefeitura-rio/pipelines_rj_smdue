@@ -1,10 +1,10 @@
 SELECT
-Num_Darm  AS Id_Darm ,
-cod_Classe  AS Id_Classe_Licenca ,
-cod_Tipo_Lic  AS Id_Tipo_Licenca ,
+Num_Darm  AS id_darm ,
+cod_Classe  AS id_classe_licenca ,
+cod_Tipo_Lic  AS id_tipo_licenca ,
 cod_Lic  AS cod_Lic,
-cod_Compl_Lic  AS Id_Complemento_Tipo_Licenca ,
-compl_Livre  AS Comentario_Licenca,
-CAST(Valor AS FLOAT64)  AS Valor ,
-Formula  AS Formula 
+cod_Compl_Lic  AS id_complemento_tipo_licenca ,
+compl_Livre  AS comentario_licenca,
+CAST(Valor AS FLOAT64)  AS valor ,
+Formula  AS formula 
 FROM `rj-smdue.adm_licenca_urbanismo_staging.darm_licenca_alvara`

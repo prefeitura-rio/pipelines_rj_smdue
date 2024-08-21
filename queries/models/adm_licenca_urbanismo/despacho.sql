@@ -1,5 +1,5 @@
 SELECT
-codTramite AS Id_Tramite,
-codParecer AS Id_Parecer,
-descDespacho AS Texto_Despacho
+codTramite AS id_tramite,
+codParecer AS id_parecer,
+descDespacho AS texto_despacho
 FROM `rj-smdue.adm_licenca_urbanismo_staging.despacho`

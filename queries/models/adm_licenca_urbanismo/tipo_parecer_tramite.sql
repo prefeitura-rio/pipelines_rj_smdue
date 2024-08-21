@@ -1,7 +1,7 @@
 SELECT
-codParecer AS Id_Parecer,
-descParecer AS Descricao_Parecer,
-CAST(CAST(vfGeraPublicacao AS FLOAT64) as int64) AS Gera_Publicacao,
-descClassificacao AS Classificacao,
-cast(PUBLICACAO_FRENTE_DO as bool) AS Publicacao_Frente_DO
+codparecer AS id_parecer,
+descparecer AS descricao_parecer,
+CAST(CAST(vfgerapublicacao AS FLOAT64) AS INT64) AS gera_publicacao,
+descclassificacao AS classificacao,
+CAST(publicacao_fronte_do AS BOOL) AS publicacao_frente_do
 FROM `rj-smdue.adm_licenca_urbanismo_staging.tipo_parecer_tramite`
