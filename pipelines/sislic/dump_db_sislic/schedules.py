@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# flake8: noqa: E501
+
 """
 Schedules for the SISLIC dump pipeline
 """
@@ -383,7 +385,7 @@ sislic_queries = {
             SELECT
                 codTramite,
                 codParecer,
-                descDespacho
+                REPLACE(REPLACE(CAST(descDespacho AS VARCHAR(MAX)), CHAR(13), ' '), CHAR(10), ' ') AS descDespacho
             FROM SMU_PRD.dbo.tbPTI_Despachos
             """,
         "biglake_table": True,
@@ -416,8 +418,8 @@ sislic_queries = {
                 codOrgao,
                 descTipoDespacho,
                 numero,
-                texto,
-                texto_final,
+                REPLACE(REPLACE(CAST(texto AS VARCHAR(MAX)), CHAR(13), ' '), CHAR(10), ' ') AS texto,
+                REPLACE(REPLACE(CAST(texto_final AS VARCHAR(MAX)), CHAR(13), ' '), CHAR(10), ' ') AS texto_final,
                 requerente,
                 dtCadastro,
                 matricLiberador,
@@ -804,7 +806,7 @@ sislic_queries = {
                 num_lic,
                 cod_Restricao,
                 Compl_Restricao,
-                Outra_restricao,
+                REPLACE(REPLACE(CAST(Outra_restricao AS VARCHAR(MAX)), CHAR(13), ' '), CHAR(10), ' ') AS Outra_restricao,
                 Data_Baixa,
                 BAIXA_EXOFFICIO
             FROM SMU_PRD.dbo.tbLIC_RestricoesLicencas
@@ -910,7 +912,7 @@ sislic_queries = {
             """,
         "biglake_table": True,
     },
-    "tipo_licenca_acao_prefeitura_1": {
+    "tipo_licenca_acao_prefeitura_2": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
@@ -922,7 +924,7 @@ sislic_queries = {
             """,
         "biglake_table": True,
     },
-    "tipo_licenca_acao_prefeitura_2": {
+    "tipo_licenca_acao_prefeitura_1": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
@@ -934,15 +936,149 @@ sislic_queries = {
             """,
         "biglake_table": True,
     },
+    "tipo_licenca_acao_prefeitura_4": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                cod_lic,
+                cod_compl_lic,
+                compl
+            FROM SMU_PRD.dbo.tbLic_ComplementosTpLicencas
+            """,
+        "biglake_table": True,
+    },
     "tipo_unidade": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
+                Cod_Unidade,
                 Desc_Unidade,
                 Desc_unidade_Plural
             FROM SMU_PRD.dbo.tbLIC_Unidades
+            """,
+        "biglake_table": True,
+    },
+    "certidao_habite_se": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                 Num_Hab
+                ,Num_Proc
+                ,Num_Lic
+                ,Cod_DLF
+                ,Dt_Emissao
+                ,Dt_Certidao
+                ,Matricula_RGI
+                ,Nr_Oficio_RGI
+                ,Pal
+                ,DescricaoLote
+                ,Numeracao_Habitavel
+                ,Mat_Tec_Resp
+                ,Cancelado
+                ,Habite_se_Total
+                ,OBS
+            FROM SMU_PRD.dbo.tbLIC_Habite_se
+            """,
+        "biglake_table": True,
+    },
+    "tipo_inscricao_imovel": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                ID_tpInscricaoImovel,
+                TpInscricaoImovel
+            FROM SMU_PRD.dbo.tbPTI_TiposInscricaoImovel
+            """,
+        "biglake_table": True,
+    },
+    "regiao_administrativa": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                codRA
+                ,nomRA
+                ,codAP
+            FROM SMU_PRD.dbo.tbLogra_Ras
+            """,
+        "biglake_table": True,
+    },
+    "orgao_licenciamento": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+                CodOrgao
+                ,CodOrgaoSigma
+                ,Ativo
+            FROM dbo.tbLIC_Orgaos
+            """,
+        "biglake_table": True,
+    },
+    "unidade_habite_se": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT ID
+                ,Num_Hab
+                ,Id_edif
+                ,Quant_Edif
+                ,Cod_Unidade
+                ,Quant_Unidade
+                ,Area
+            FROM SMU_PRD.dbo.tbLIC_UnidadesHabite_se
+            """,
+        "biglake_table": True,
+    },
+    "certidao_aceitacao": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT Num_Aceitacao
+                ,Num_Proc
+                ,Num_Lic
+                ,Cod_DLF
+                ,Dt_Emissao
+                ,Dt_Certidao
+                ,Matricula_RGI
+                ,Nr_Oficio_RGI
+                ,PAL
+                ,Mat_Tec_Resp
+                ,Cancelado
+                ,Obs
+            FROM SMU_PRD.dbo.tbLIC_Aceitacoes
+            """,
+        "biglake_table": True,
+    },
+    "georeferencia_endereco_obra_processo": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT
+            id_processo,
+            id_processo_sislic,
+            nu_processo,
+            cd_logradouro,
+            nu_porta,
+            nu_pal,
+            id_bairro_sislic,
+            id_ra_sislic,
+            no_bairro,
+            shape
+            FROM SMU_PRD.dbo.tbGEOSISLIC_processo
             """,
         "biglake_table": True,
     },
@@ -961,6 +1097,7 @@ sislic_clocks = generate_dump_db_schedules(
     dataset_id="adm_licenca_urbanismo",
     infisical_secret_path="/db_sislic",
     table_parameters=sislic_queries,
+    runs_interval_minutes=5,
 )
 
 update_schedule = Schedule(clocks=untuple(sislic_clocks))

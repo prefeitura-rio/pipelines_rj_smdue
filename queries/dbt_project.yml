@@ -21,6 +21,6 @@ models:
     relation: true
     columns: true
   queries:
-    example:
-      +materialized: view
-      +schema: example
+    adm_licenca_urbanismo:
+      +materialized: table
+      +schema: adm_licenca_urbanismo
