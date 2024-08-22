@@ -383,7 +383,7 @@ sislic_queries = {
             SELECT
                 codTramite,
                 codParecer,
-                descDespacho
+                REPLACE(REPLACE(CAST(descDespacho AS VARCHAR(MAX)), CHAR(13), ' '), CHAR(10), ' ') AS descDespacho
             FROM SMU_PRD.dbo.tbPTI_Despachos
             """,
         "biglake_table": True,
@@ -416,8 +416,8 @@ sislic_queries = {
                 codOrgao,
                 descTipoDespacho,
                 numero,
-                texto,
-                texto_final,
+                REPLACE(REPLACE(CAST(texto AS VARCHAR(MAX)), CHAR(13), ' '), CHAR(10), ' ') AS texto,
+                REPLACE(REPLACE(CAST(texto_final AS VARCHAR(MAX)), CHAR(13), ' '), CHAR(10), ' ') AS texto_final,
                 requerente,
                 dtCadastro,
                 matricLiberador,
@@ -804,7 +804,7 @@ sislic_queries = {
                 num_lic,
                 cod_Restricao,
                 Compl_Restricao,
-                Outra_restricao,
+                REPLACE(REPLACE(CAST(Outra_restricao AS VARCHAR(MAX)), CHAR(13), ' '), CHAR(10), ' ') AS Outra_restricao,
                 Data_Baixa,
                 BAIXA_EXOFFICIO
             FROM SMU_PRD.dbo.tbLIC_RestricoesLicencas
