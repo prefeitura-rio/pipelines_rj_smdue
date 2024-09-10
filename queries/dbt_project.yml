@@ -24,3 +24,6 @@ models:
     adm_licenca_urbanismo:
       +materialized: table
       +schema: adm_licenca_urbanismo
+    geosislic:
+      +materialized: table
+      +schema: geosislic
