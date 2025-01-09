@@ -1098,10 +1098,6 @@ sislic_queries = {
             num_lic_Origem,
             num_lic_Destino,
             DtTransferencia,
-            Mat_Func,
-            Nome_Func,
-            Cargo_Func,
-            MAQUINA_UTILIZADA,
             CODORGAOSIGMA_ORIGEM,
             CODORGAOSIGMA_DESTINO
             FROM SMU_PRD.dbo.tbLIC_LicencasTransferidasCLU_CRU
@@ -1118,16 +1114,6 @@ sislic_queries = {
            cod_dlf,
            tipo,
            Nr_documento,
-           dt_cancelamento,
-           mat_func,
-           nome_func,
-           cargo_func,
-           motivo,
-           complmotivo,
-           responsavel,
-           outroresp,
-           dt_autorizacao,
-           MAQUINA_UTILIZADA
 
             FROM SMU_PRD.dbo.tbLIC_DocCancelados
             """,
