@@ -1089,34 +1089,32 @@ sislic_queries = {
             """,
         "biglake_table": True,
     },
-
     "licenca_transferida": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-            SELECT 
-            num_lic_Origem, 
-            num_lic_Destino, 
-            DtTransferencia, 
-            Mat_Func, 
-            Nome_Func, 
-            Cargo_Func, 
-            MAQUINA_UTILIZADA, 
-            CODORGAOSIGMA_ORIGEM, 
+            SELECT
+            num_lic_Origem,
+            num_lic_Destino,
+            DtTransferencia,
+            Mat_Func,
+            Nome_Func,
+            Cargo_Func,
+            MAQUINA_UTILIZADA,
+            CODORGAOSIGMA_ORIGEM,
             CODORGAOSIGMA_DESTINO
             FROM SMU_PRD.dbo.tbLIC_LicencasTransferidasCLU_CRU
 
             """,
         "biglake_table": True,
     },
-
-     "registro_cancelamento_produto": {
+    "registro_cancelamento_produto": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
         "dump_mode": "overwrite",
         "execute_query": """
-           SELECT 
+           SELECT
            cod_dlf,
            tipo,
            Nr_documento,
