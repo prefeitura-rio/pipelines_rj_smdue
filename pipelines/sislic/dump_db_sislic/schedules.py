@@ -498,6 +498,7 @@ sislic_queries = {
         "dump_mode": "overwrite",
         "execute_query": """
             SELECT
+                num_lic,
                 licenca,
                 num_proc,
                 cod_dlf,
@@ -559,9 +560,12 @@ sislic_queries = {
                 ConcedeNumeracao,
                 NumConcedida,
                 OBS,
+                mat_func,
                 cancelado,
+                licgratis,
                 OrgaoCentral,
                 CODORGAO_ESPECIAL,
+                OrdemEmissao,
                 Licenca_Loteamento,
                 LicencaAvulsa,
                 LoteamentoNovoModelo,
@@ -971,6 +975,7 @@ sislic_queries = {
                  Num_Hab
                 ,Num_Proc
                 ,Num_Lic
+                ,Habite_se
                 ,Cod_DLF
                 ,Dt_Emissao
                 ,Dt_Certidao
@@ -1049,12 +1054,14 @@ sislic_queries = {
             SELECT Num_Aceitacao
                 ,Num_Proc
                 ,Num_Lic
+                ,Aceitacao
                 ,Cod_DLF
                 ,Dt_Emissao
                 ,Dt_Certidao
                 ,Matricula_RGI
                 ,Nr_Oficio_RGI
                 ,PAL
+                ,DescricaoLote
                 ,Mat_Tec_Resp
                 ,Cancelado
                 ,Obs
@@ -1079,6 +1086,52 @@ sislic_queries = {
             no_bairro,
             shape
             FROM SMU_PRD.dbo.tbGEOSISLIC_processo
+            """,
+        "biglake_table": True,
+    },
+
+    "licenca_transferida": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+            SELECT 
+            num_lic_Origem, 
+            num_lic_Destino, 
+            DtTransferencia, 
+            Mat_Func, 
+            Nome_Func, 
+            Cargo_Func, 
+            MAQUINA_UTILIZADA, 
+            CODORGAOSIGMA_ORIGEM, 
+            CODORGAOSIGMA_DESTINO
+            FROM SMU_PRD.dbo.tbLIC_LicencasTransferidasCLU_CRU
+
+            """,
+        "biglake_table": True,
+    },
+
+     "registro_cancelamento_produto": {
+        "materialize_after_dump": True,
+        "materialization_mode": "prod",
+        "dump_mode": "overwrite",
+        "execute_query": """
+           SELECT 
+           cod_dlf,
+           tipo,
+           Nr_documento,
+           dt_cancelamento,
+           mat_func,
+           nome_func,
+           cargo_func,
+           motivo,
+           complmotivo,
+           responsavel,
+           outroresp,
+           dt_autorizacao,
+           MAQUINA_UTILIZADA
+
+            FROM SMU_PRD.dbo.tbLIC_DocCancelados
             """,
         "biglake_table": True,
     },

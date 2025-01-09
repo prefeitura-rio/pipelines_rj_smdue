@@ -2,6 +2,7 @@ SELECT
     Num_Hab AS id_habite_se,
     Num_Proc AS numero_processo,
     Num_Lic AS id_licenciamento,
+    Habite_se AS numero_certidao,
     Cod_DLF AS id_orgao_sislic,
     CAST(Dt_Emissao AS DATETIME) AS data_emissao,
     CAST(Dt_Certidao AS DATETIME) AS data_certidao,
