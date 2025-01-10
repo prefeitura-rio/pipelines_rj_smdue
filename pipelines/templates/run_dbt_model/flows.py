@@ -34,3 +34,5 @@ templates__run_dbt_model_smdue__flow = set_default_parameters(
     templates__run_dbt_model_smdue__flow,
     default_parameters=templates_run_dbt_model_smdue_default_parameters,
 )
+
+# RUN DBT MODEL
