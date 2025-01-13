@@ -1113,9 +1113,9 @@ sislic_queries = {
            SELECT
            cod_dlf,
            tipo,
-           Nr_documento,
+           Nr_documento
 
-            FROM SMU_PRD.dbo.tbLIC_DocCancelados
+        FROM SMU_PRD.dbo.tbLIC_DocCancelados
             """,
         "biglake_table": True,
     },
