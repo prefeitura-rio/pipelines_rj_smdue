@@ -1113,7 +1113,8 @@ sislic_queries = {
            SELECT
            cod_dlf,
            tipo,
-           Nr_documento
+           Nr_documento,
+           dt_cancelamento
 
         FROM SMU_PRD.dbo.tbLIC_DocCancelados
             """,
