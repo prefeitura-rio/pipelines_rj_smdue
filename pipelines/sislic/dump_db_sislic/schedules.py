@@ -2,7 +2,7 @@
 # flake8: noqa: E501
 
 """
-Schedules for the SISLIC dump pipeline 
+Schedules for the SISLIC dump pipeline
 """
 
 from datetime import datetime, timedelta
@@ -18,7 +18,7 @@ sislic_queries = {
     "documento": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
-        "dump_mode": "overwrite", 
+        "dump_mode": "overwrite",
         "execute_query": """
             SELECT
                 codDocumento,
