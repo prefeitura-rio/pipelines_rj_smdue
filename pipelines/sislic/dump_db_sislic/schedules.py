@@ -2,7 +2,7 @@
 # flake8: noqa: E501
 
 """
-Schedules for the SISLIC dump pipeline 
+Schedules for the SISLIC dump pipeline
 """
 
 from datetime import datetime, timedelta
