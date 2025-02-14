@@ -18,7 +18,7 @@ sislic_queries = {
     "documento": {
         "materialize_after_dump": True,
         "materialization_mode": "prod",
-        "dump_mode": "overwrite",
+        "dump_mode": "overwrite", 
         "execute_query": """
             SELECT
                 codDocumento,
