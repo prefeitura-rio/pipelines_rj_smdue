@@ -9,8 +9,8 @@ This script is used to unschedule archived flows with scheduled runs in Prefect.
 - Adapted from SMTR's flow called Janitor
 """
 import argparse
-from datetime import datetime
 import time
+from datetime import datetime
 
 from loguru import logger
 
