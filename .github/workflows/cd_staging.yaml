@@ -77,4 +77,4 @@ jobs:
 
       - name: Unschedule Archived Prefect flows
         run: |-
-          python .github/workflows/scripts/unschedule_archived_flows.py --project $PREFECT__SERVER__PROJECT
+          python .github/workflows/scripts/unschedule_archived_flows.py --project $PREFECT__SERVER__PROJECT --environment staging
