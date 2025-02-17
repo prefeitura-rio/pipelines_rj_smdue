@@ -227,7 +227,7 @@ def archive_flow_versions(flow_versions_to_archive: list, prefect_client: Client
 
 
 def main():
-    
+
     # Sleep por 1 minuto para garantir que o Prefect Cloud tenha tempo de atualizar os dados
     time.sleep(60)
 
