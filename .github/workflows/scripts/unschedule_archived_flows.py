@@ -227,8 +227,10 @@ def archive_flow_versions(flow_versions_to_archive: list, prefect_client: Client
 
 
 def main():
-
+    
+    # Sleep por 1 minuto para garantir que o Prefect Cloud tenha tempo de atualizar os dados
     time.sleep(60)
+
     parser = argparse.ArgumentParser(description="Process a project name.")
     parser.add_argument("--project", type=str, required=True, help="Name of the project")
     parser.add_argument("--environment", type=str, required=True, help="Environment the project")
