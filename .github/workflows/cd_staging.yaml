@@ -74,3 +74,7 @@ jobs:
       - name: Register Prefect flows
         run: |-
           python .github/workflows/scripts/register_flows.py --project $PREFECT__SERVER__PROJECT --path pipelines/ --no-schedule --filter-affected-flows
+
+      - name: Unschedule Archived Prefect flows
+        run: |-
+          python .github/workflows/scripts/unschedule_archived_flows.py --project $PREFECT__SERVER__PROJECT --environment staging
